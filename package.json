@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node --watch index.js"
+    "start": "node --watch ./4-timer/index.js"
   },
   "author": "",
   "license": "ISC",
