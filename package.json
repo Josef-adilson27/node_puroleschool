@@ -2,8 +2,9 @@
   "name": "node-purpleschool",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node --watch index.js"
+    "start": "node --watch index.js"
   },
   "author": "",
   "license": "ISC",
