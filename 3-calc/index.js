@@ -1,28 +1,45 @@
 import process from "process";
 
-async function loadModule(a, b) {
+
+const operation = process.argv[2];
+const firstOperand = process.argv[3]
+const secondOperand = process.argv[4]
+
+
+async function loadModule(operation, a, b){
   try {
-    switch (process.argv[2]) {
-      case "add":
-        const { add } = await import("./add.js");
-        console.log(add(a, b));
-        break;
-      case "multiply":
-        const { multiply } = await import("./multply.js");
-        console.log(multiply(a, b));
-        break;
-      case "divide":
-        const { divide } = await import("./divide.js");
-        console.log(divide(a, b));
-        break;
-      default:
-        break;
+    const  operationFunc = operations[operation]
+    
+    if(operationFunc && !isNaN(b) && !isNaN(a)){
+      console.log(await  operationFunc(a,b));
+    }else{
+      console.error('Операция не подерживается');
     }
-  } catch (error) {
-    console.log("Упс,Oшибка:", error);
+  } catch(error) {
+    console.log(error);
   }
 }
 
-loadModule(process.argv[3], process.argv[4]);
+const operations = {
+  "add": async (a, b) => {
+    const { add } = await import("./add.js");
+    return add(a, b);
+  },
+  "divide": async (a, b) => {
+    const { divide } = await import("./divide.js");
+    return divide(a, b);
+  },
+  "multiply": async (a, b) => {
+    const { multiply } = await import("./multiply.js");
+    return multiply(a, b);
+  },
+};
+
+
+if(process.argv.length !== 5){
+  console.error('Неправильное количество аргументов')
+}else{
+  loadModule(operation,firstOperand,secondOperand);
+}
 
 //путь: node ./3-calc/index.js  
