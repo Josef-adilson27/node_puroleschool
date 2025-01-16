@@ -1,10 +1,16 @@
-import { parentPort, workerData } from 'worker_threads';
+import { parentPort, workerData } from "worker_threads";
 
-const squares = workerData.filter(num =>{
-    if(num % 3 === 0){
-        return num
-    }
+const threadId = workerData.threadId; // Извлекаем идентификатор потока
+const numbers = workerData.numbers;
+
+performance.mark("start");
+
+const squares = numbers.filter((num) => {
+  return num % 3 === 0;
 });
 
+performance.mark("end");
 
-parentPort.postMessage(squares);
+performance.measure('main','start','end')
+console.log(`Время выполнения: ${threadId} потока: ${performance.getEntriesByName('main')[0].duration}`);
+parentPort.postMessage({ threadId, squares });
