@@ -14,3 +14,6 @@ performance.mark("end");
 performance.measure('main','start','end')
 console.log(`Время выполнения: ${threadId} потока: ${performance.getEntriesByName('main')[0].duration}`);
 parentPort.postMessage({ threadId, squares });
+
+
+

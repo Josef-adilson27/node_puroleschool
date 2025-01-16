@@ -1,6 +1,15 @@
 import { Worker } from "worker_threads";
 import { PerformanceObserver } from "perf_hooks";
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
+/////////////////////////////// PerformanceObserver ////////////////////////////////////////
+
 const performanceObserver = new PerformanceObserver((items) => {
   items.getEntries().forEach((entry) => {
     console.log(`Время выполнения: ${entry.name} ${entry.duration} мс`)
@@ -40,7 +49,7 @@ function computeWithTreads() {
       threadId: i + 1, // Передаем id потока в worker для его вывода в консоли
     };
 
-    const worker = new Worker("./worker.js", { workerData });
+    const worker = new Worker(path.resolve(__dirname, 'worker.js'), { workerData });
 
     worker.on("message", (msg) => {
       completedWorkers++;
