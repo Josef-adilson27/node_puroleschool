@@ -1,10 +1,11 @@
 {
   "name": "node-purpleschool",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch ./5-multithreads/index.js"
+    "start": "node --watch ./index.js"
   },
   "author": "",
   "license": "ISC",
