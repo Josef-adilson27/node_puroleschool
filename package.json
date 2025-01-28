@@ -1,13 +1,11 @@
 {
   "name": "node-purpleschool",
   "version": "1.0.0",
-  "main": "weather.js",
   "type": "module",
-  "bin": {
-    "weather": "./8-weather-extended/weather.js"
-  },
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": ""
+    "start": "node --watch ./index.js"
   },
   "keywords": [
     "cli",
