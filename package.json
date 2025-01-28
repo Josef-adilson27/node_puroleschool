@@ -1,14 +1,24 @@
 {
   "name": "node-purpleschool",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node --watch ./7-timer-notifications/index.js"
+    "start": "node --watch ./index.js"
   },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "node-notifier": "^10.0.1"
+    "axios": "^1.7.9",
+    "chalk": "^5.4.1",
+    "cross-env": "^7.0.3",
+    "dedent": "^1.5.3"
   }
 }
