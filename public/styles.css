@@ -1,0 +1,51 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    inline-size: 100%;
+    block-size: 100vh;
+
+    color: rgb(255, 255, 255);
+    background: #fffffff9;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/024/769/407/large_2x/view-of-the-planet-earth-during-sunrise-with-ai-generated-free-photo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+
+}
+
+
+.main{
+
+ inline-size: 90%;
+ block-size: auto;
+ & h1{
+    text-align: center;
+  }
+}
+
+.cardsBox{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.weather{
+    text-align: center;
+    background-color: rgb(33, 32, 32, 0.7);
+    inline-size: auto;
+    block-size: 230px;
+    border-radius: 15px;
+    margin-inline: 10px;
+    margin-block: 10px;
+    padding-inline: 20px;
+    padding-block: 20px;
+}
+
